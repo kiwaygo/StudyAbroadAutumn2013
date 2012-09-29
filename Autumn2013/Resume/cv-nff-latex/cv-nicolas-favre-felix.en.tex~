@@ -1,0 +1,93 @@
+\documentclass[a4paper,12pt]{article}
+
+\include{cv-commands}
+
+\begin{document}
+
+\setmainfont
+
+\header
+{Chi-Wei Tseng}
+{}
+{e-mail: kiwaygo@gmail.com\\
+mobile: \smcp{0932011156}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{resumeblock}{Education}
+\resumeitem{2008--2012}{Bachelor of Science in Computer Science and Information Engineering, National Taiwan University.} \\
+\resumeitem{2007--2011}{Bachelor of Science in Chemistry, National Taiwan University.} \\
+\resumeitem{2004--2007}{Diploma, Taipei Municiple Jianguo(Chien-Kuo) High School.}
+
+\largeskip
+\end{resumeblock}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{resumeblock}{Research Interests}
+
+\resumeitem{Computer Grpahics}{PR and NPR rendering algorithms, 2D/3D modeling/animating methods, light-field reconstruction and physically-based simulation.}
+\largeskip
+
+\resumeitem{Theoretical Chemistry}{Molecular modeling and quantum dynamical simulation.}
+\largeskip
+
+\end{resumeblock}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{resumeblock}{Awards and Honors}
+
+\resumeitem{May, 2011}{Excellent Undergraduate Poster Award, Department of Chemistry, National Taiwan University.}
+\largeskip
+
+\end{resumeblock}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{resumeblock}{Experience}
+
+\resumeitem{Sep., 2011--Jul., 2012}{Research in an undergraduate special project of constructing a lighting-by-guide system. Under instruction of Professor Yung-Yu Chuang.}
+\largeskip
+
+\resumeitem{Aug., 2010--Jul., 2012}{Worked part-time in Theoretical Chemistry Group, Department of Chemistry, National Taiwan University. Research in designing novel ultrafast non-linear spectroscopy technique. Under instruction of Professor Yuan-Chung Cheng.}
+\largeskip
+
+\resumeitem{Jan., 2011--Apr., 2011}{Worked as the director of the senior musical in ``The Night of Chemistry''.}
+\largeskip
+
+\resumeitem{Jun., 2008--Jul., 2008}{Enrolled in summer sessions at University of California at Berkeley.}
+\largeskip 
+
+\resumeitem{Jun., 2005--Jun., 2006}{Offer courses in 3D computer graphics in Information Club, Jianguo(Chien-Kuo) High School.}
+\largeskip
+
+\end{resumeblock}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{resumeblock}{Personal Projects}
+
+\resumeitem{Monotone}{A library for generating countup or countdown animation.}
+\shortskip
+
+\resumeitem{Jyuben}{A \LaTeX\ class for typesetting plays in Chinese.}
+\shortskip
+
+\end{resumeblock}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{resumeblock}{Conceptual Projects}
+
+\resumeitem{2.5D Animation Pipeline}{Constructing a framework for realistic 3D shading on 2D animations.}
+\shortskip
+
+\resumeitem{Spades}{Design a unified programming language to generate board game simulators.}
+\shortskip
+
+\resumeitem{Stories for Animation}{I continually collect ideas and write stories with hope to producing animated features in the future.}
+
+\end{resumeblock}
+
+\end{document}

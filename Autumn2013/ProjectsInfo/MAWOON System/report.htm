@@ -1,0 +1,147 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0060)http://report.cnl2011-26.csie.org/finalproject/progress.html -->
+<HTML><HEAD><TITLE>Lab2_Group 26</TITLE>
+<META content="text/html; charset=Big5" http-equiv=Content-Type>
+<STYLE type=text/css>BODY {
+	BORDER-BOTTOM: black 1px dotted; BORDER-LEFT: black 1px dotted; FONT-FAMILY: sans-serif; MARGIN-LEFT: 20%; FONT-SIZE: 16px; BORDER-TOP: black 1px dotted; MARGIN-RIGHT: 20%; BORDER-RIGHT: black 1px dotted
+}
+H1 {
+	TEXT-ALIGN: center; BACKGROUND-COLOR: black; COLOR: white
+}
+H2 {
+	BORDER-TOP-STYLE: dotted; COLOR: gray; FONT-WEIGHT: bolder
+}
+H3 {
+	MARGIN-LEFT: 10%; TEXT-DECORATION: underline
+}
+UL.a {
+	LIST-STYLE-TYPE: circle
+}
+UL.b {
+	LIST-STYLE-TYPE: square
+}
+</STYLE>
+
+<META name=GENERATOR content="MSHTML 8.00.6001.19088"></HEAD>
+<BODY>
+<H1>CNL Final Project: Final Report</H1>
+<H2>組別</H2>
+<P>第26組：洪士程、曾紀為、陳昱儒、莫安德</P>
+<H2>題目</H2>
+<P>線上即時共同筆記系統</P>
+<H2>Introduction</H2>
+
+<P>
+無論是上課、聽演講還是開會，抄筆記都是不可或缺的一項工作。為了方便且正確地記錄訊息，我們想利用網路建構一個合作系統，
+讓多位使用者可以同時登入一份文件，並參與其編輯刪改。現今網路上已有不少共同文件編輯系統，有名的如Google Docuemnt
+，不只功能豐富，還設計了非常清晰的GUI，儼然是一個網路版的文書處理程式，應用廣泛。
+</P>
+
+<P>
+我們考量到網頁GUI設計之難度，以及製作時間有限，決定往light-weight的程式發展，且在文字編輯器方面，僅從最重要的功能如
+「插入文字」和「移除文字」著手。另外，安全性也是我們考量的重要因素，因此我們建立了機器人防堵機制，將
+透過socket傳送的使用者密碼加密，並且用C寫程式比對登入資訊與server上MySQL資料庫中的使用者清單。
+
+<P>
+我們使用了NCURSES library設計text-based UI、偵測鍵盤動作，使用了UNIX的system call，在負責呈現UI的client端程式與修改磁
+碟檔案的server端程式之間，建立socket連線，藉由tcp傳送簡單的operation packet和data packet，以達成我們設計的目的。
+</P>
+
+<H2>Result</H2>
+
+<p>可點選圖片放大</p>
+
+<H4><a href=http://cnl2011-26.csie.org/final/>註冊網頁</a></H4>
+<p align=center><a href=img/register-2.png><img src=img/register-2.png width=67% border=1 /></a></p>
+<H4>系統登入<H4>
+<p align=center><a href=img/login.png><img src=img/login.png width=67% border=1 /></a></p>
+<H4>client工作畫面</H4>
+<p align=center><a href=img/working.png><img src=img/working.png width=67% border=1></a></p>
+<p>顯示之不同顏色代表多個使用者的貢獻。不同使用者可同時編輯此文件，且文件內容即時更新。</p>
+<H4>server印出除錯訊息/記錄</H4>
+<p align=center><a href=img/server.png><img src=img/server.png width=67% border=1></a></p>
+
+<H2>Implementation Detail</H2>
+
+<H4>系統結構</H4>
+
+<p align=center><img src=img/structure.png width=67%></p>
+
+<H4>client端功能</H4>
+
+<p>
+我們儘可能讓系統client端和server端的功能切割明確，以方便程式碼的管理，因此，client端只負責管理UI和偵測鍵盤，沒有任何文件資料的儲存，亦即我們想知道任何與文件相關的資訊、資料結構
+，都要先從client端發出一個operation packet，等待server端閱讀文件、計算結果後，才傳回含有答案的data packet，而這些答案，幾乎可說是用完就丟的，因為下一次query之前，文件有可能已經
+被另一位使用者編輯過了。我們這麼做的優點是易於實做，缺點是網路負擔吃重。
+</p>
+
+<p>
+前一段說明的operation packet包括：
+</p>
+<ul>
+<li>auth/salt packet: 使用者登入時的認證、加密機制。</li>
+<li>up/down packet: 將可見的文件範圍向上或向下移動一行。</li>
+<li>len packet: 查詢文件「使用者端某一行」的字元數，詳見下一段的解釋。</li>
+<li>input packet: 於文件的某個byte插入新文字或移除舊文字。</li>
+<li>refresh packet: 要求重傳目前的文件內容。</li>
+<li>author packet: 要求重傳目前的edit log，關於edit log的功能，請見「server端功能」。</li>
+</ul>
+
+<p>
+管理UI的部份，我們除了使用Ncurses library來建構出我們想要的畫面外，最大的挑戰便在於按下鍵盤方向鍵時，文件的捲動與游標的移動。這部份的coding讓我們碰上了不少困難，
+例如當文件中某一行過長，超出UI編輯畫面的寬度時，行尾應自動折回變為兩行，為了滿足這個要求，我們不能把兩個'\n'字元之間的字元數，直接當成此行印在螢幕上的長度，最麻煩的是文件
+往上捲動的時候，client端沒有server端提供的額外資訊，跟本不會知道上一行是填滿了字元，還是在一半時出現'\n'而斷行，導致我們無法判斷應該將文件可見範圍往前挪幾個byte。解決方法是
+在server端創造一個linked list，負責管理此文件「印在client端時」各行的字元數，再讓client端透過socket來query。
+</p>
+
+<p>
+另一個遇到的困難是特殊字元，例如當使用者在文件中打入一個'\n'，或按下backspace、delete等鍵的游標移動，由於尚未按下這些鍵的時候，游標可能位於行尾、行頭、甚至是編輯畫面的最尾端、最
+開頭，每一種case，游標的移動方式都不一樣，因此我們只能case by case的一個一個設計出來，這部份非常瑣碎麻煩，截至demo我們都還持續發現有bug。
+</p>
+
+<H4>server端功能</H4>
+
+server負責處理對檔案的一切操作，並且建立與文件相關的資料結構，以方便在需要的時候，可以很快地回答client的詢問，將資料傳給client。
+
+當client登入server時，server一旦確認連線合法，便會fork出一個child，專門與此client接洽，由於我們對於多個process之間彼此share memory的機制不熟，因此沒有讓這些child
+具有部份的共用memory，這些child唯一共用的，只有相同的file descriptor，這其實不是個好方法，什麼資料都要對硬碟進行讀寫，速度緩慢且很操硬碟，幸好在編輯人數不多的狀況下，算是堪用了。
+
+我們設計的機制是，每建立一份note，都包含兩個檔案，一個是文件的內容，另一個檔案以byte為單位，紀錄每個字元是由哪位使用者編輯的，並以a、b、c、d等color code來表示，
+這麼做可方便client端直接對要顯示在螢幕上的文件內容上色。上述這兩個file都直接由fork出的child processes管理。
+
+在上述的結構下，我們設計server端程式從socket讀到各operation packet時的運作方式。
+<ul>
+<li>salt packet: 將隨機產生的salt傳回client。</li>
+<li>auth packet：接收client端傳來的帳號、加密密碼和欲編輯文件名稱，解密後，與MySQL的user資料庫比對，傳回認證成功或失敗。</li>
+<li>up/down packet: 將舊可見文件範圍向上或向下移動一行，並將新的可見文件範圍傳回client。</li>
+<li>len packet: 重建儲存每一行字元數的linked list，並將client指定行的長度回傳給client。</li>
+<li>input packet: 寫入磁碟上的筆記內容檔案與edit log檔案。</li>
+<li>refresh packet: 重讀筆記內容檔，並傳回現在可見文件範圍的內容。</li>
+<li>author packet: 重讀edit log檔案，並傳回現在可見文件範圍的edit log內容。</li>
+</ul>
+
+<H2>What We Learned</H2>
+<p>
+此次進行final project，我們用了很多本組組員之前都沒碰過的技術。主要條列如下：
+</p>
+<ul>
+<li>Network Programming: 如何在Linux下撰寫建立socket、傳送和接收packet的程式。</li>
+<li>C Programming with MySQL Database: 如何撰寫可以查詢MySQL資料庫中內容的C語言程式。</li>
+<li>MD5 password hash / DES encryption: 對送出與接收到的資訊進行加密或解密。</li>
+<li>NCurses Library: 學習使用此library製作text-based UI和鍵盤偵測。</li>
+</ul>
+
+這是我們所有人第一次嘗試撰寫文件編輯器，也是第一次撰寫透過網路來傳送資料的程式，所以有很多地方都使用非常陽春，服務規模很難擴大的實做方式，例如文件讀入記憶體後的資料結構、
+避免conflict的方式，在文件中插入、移除字元的機制、重讀文件是否受到修改的方式，都有很多可以改善的空間，也有不少是在demo時跟助教討論後才比較清楚的，值得更進一步學習。
+
+<H2>Resources</H2>
+<P><A href="http://syuanyin.pixnet.net/blog/post/27594556">5個Web2.0線上共筆平台</A> 
+</P>
+<P><A href="http://beej.us/guide/bgnet/">Beej's Guide to Network Programming</A> 
+</P>
+<P><A href="http://www.kohala.com/start/unpv12e.html">UNIX Network Programming, 
+Volume 1 by Richard Stevens</A> </P>
+<P><a href="http://tldp.org/HOWTO/NCURSES-Programming-HOWTO/">NCURSES Programmin HOWTO</a></P>
+<p>
+</BODY></HTML>
+
