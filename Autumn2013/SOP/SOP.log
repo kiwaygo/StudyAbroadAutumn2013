@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.3.15)  10 OCT 2012 16:45
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.3.15)  14 OCT 2012 17:55
 entering extended mode
  %&-line parsing enabled.
 **SOP
@@ -339,37 +339,37 @@ Underfull \hbox (badness 10000) in paragraph at lines 43--44
 
  []
 
+[1
 
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 Underfull \hbox (badness 10000) in paragraph at lines 47--48
 
  []
 
-[1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 52--53
+Underfull \hbox (badness 10000) in paragraph at lines 51--52
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 57--58
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 55--56
 
  []
 
-[2] (./SOP.aux) ) 
+[3] (./SOP.aux) ) 
 Here is how much of TeX's memory you used:
- 1142 strings out of 495046
- 13920 string characters out of 1181937
- 72368 words of memory out of 3000000
- 4361 multiletter control sequences out of 15000+50000
+ 1146 strings out of 495046
+ 13966 string characters out of 1181937
+ 74368 words of memory out of 3000000
+ 4365 multiletter control sequences out of 15000+50000
  4552 words of font info for 17 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
- 24i,4n,19p,1496b,137s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 24i,4n,19p,1653b,137s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx1
 2.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr12.pfb>
-Output written on SOP.pdf (2 pages, 36713 bytes).
+Output written on SOP.pdf (3 pages, 40385 bytes).
 PDF statistics:
- 17 PDF objects out of 1000 (max. 8388607)
+ 20 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
