@@ -1,0 +1,60 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[left=0.8in,right=0.8in,top=0.8in,bottom=0.8in]{geometry}
+
+\parskip=0.15in
+
+\newcommand{\HRule}{\rule{\linewidth}{0.2mm}}
+\newcommand{\Hrule}{\rule{\linewidth}{0.3mm}}
+
+
+\makeatletter% since there's an at-sign (@) in the command name
+\renewcommand{\maketitle}{
+  \parindent=0pt% don't indent paragraphs in the title block
+  \begin{flushleft}
+  \bf \large{\@author}
+  \HRule
+  \end{flushleft}
+  \begin{center}
+    \MakeUppercase{\bf \@title}
+  \end{center}%
+    \par
+}
+\makeatother% resets the meaning of the at-sign (@)
+
+\title{Statement of Purpose} 
+\author{Chi-Wei Tseng}
+\date{Date: \today}
+
+\linespread{1.2}
+
+\begin{document}
+{\linespread{0.8} \maketitle}
+\parindent 5ex
+
+For many years, I have become addicted to expressing myself via forms of digital art --- computer graphics, animation and music --- whose capability and expressibility have fascinated me and fed my hunger to create. I have worked on projects in website and graphical designing, self-studied generating 3D computer graphics (3DCG), and had fun toying with midi keyboards and audio editing softwares. Through broad and vigorous exploration, I realized that the strength of computers as tools for artistic productions lies in its ability to render complicated effects and styles through simulation, and yet their weakness lies in the difficulty in translating artistic intentions into programs and parameters. Therefore, I want to study toward a graduate degree in computer science, focusing on narrowing the gap between technology and people so that digital artists can concentrate more on their works rather than their skills, and thus effectively unleash full power of computation for artistic purposes.
+
+Passion for digital art, especially 3DCG, has ignited my motivation to dive into a series of advanced courses in university curriculum, which equipped me with profound understanding in image synthesis, image processing, digital visual effects, computational photography and real-time rendering. I worked diligently, particularly in projects, where I often led others to hunt for inspiring papers and brainstorm ideas to redesign algorithms for specific goals. Teammates have praised my contributions in proposing prominent topics (i.e.\ ``Milktea Rendering''), planning feasible roadmaps and providing encouraging visions. Apart from curricular works, friends and I took months to survey and write a ray tracer in sophomore year. The excitement for opening the blackbox of 3DCG for the first time in life was unforgettable. These projects and courses have provided me with opportunities to strengthen my capabilities in collaborative software development, and to explore mechanisms behind functionalities of many tools I once used. I grasped them to prepare myself with specialized knowledge in digital art which differentiated me from other students.
+
+% The lighting-by-guide project
+
+From 2011, I participated in developing the ``Lighting-by-guide System'' under instruction of Professor~Yung-Yu~Chuang, aiming at automatically guessing the quantity, positions, and properties of lights in a 3D scene from an artistic depiction of the anticipated render, namely the lighting-guide. Besides implementing a hierarical expand-and-reduce procedure to search the space of lighting parameters, I fine-tuned the algorithm through proposing an optimization target under a ``most-noticeable-light-first'' approach, achieving faster convergence and lower perceptual difference between the lighting-guide and the image rendered with the guessed configuration. The system is readily applicable to computer animation production, which offers convenient starting points where lighting artists only need to make minute adjustments. Professor Chuang has granted me complete control of the project, forcing me to foster essential traits for an independent researcher in computer graphics. I learned to discover bottlenecks and bugs through benchmarking and examining intermediate products, to ask crucial questions which lead to significant improvements, and to widely consult resources from journals to manuals. I have developed strong engineering fundamentals.
+
+% Precisely speaking, we were facing challenges from a high-dimensional optimization problem for energy functions with considerable discontinuities.
+% EC2D project:
+
+My proficiency in researching stemed from not only abundant engineering experiences, but the concrete scientific trainings I recieved. As I was originally enrolled in university to study chemistry, I strived and got qualified in double-majoring computer science in 2008. While innovation and systemmatic analysis form the backbones of engineering, thinking critically and accurately are emphasized for studying natural science. I got the best of both worlds. I joined theoretical chemsitry lab led by Professor~Yuan-Chung~Cheng, where we verified novel designs of nonlinear electronic spectroscopy by simulating quantum dynamics of molecules interacting with laser pulses. Working at the junction of computer science and chemistry enabled me to formulate and implement physically accurate models on computers. In addition, I became familiar with various numerical algorithms and visualization packages, which radically expanded my skill sets. Most importantly, the environment has cultivated my down-to-earth attitude on solving issues whose wherefores are not understood. To me, revealing causes and effects of phenomena is far more urgent than getting codes to run. My exceptional conduct and cogitation of a scientist has made me stood out from the crowd.
+
+% All is not possible if it were not for a turning point in my freshman year. As I originally enrolled in university to study chemistry, a compromise for not doing well enough on the college entrance exam,  
+
+% Aspiration: artist career. To tell great stories. To convey my love toward great things in life. Yet, ...
+
+A scientist digests observations into theories, while an engineer employs theories to invent. My personal aspiration is to combine the both and become an artist, who invents from observations. Indeed, I was enthusiastic in collecting preliminary ideas and developing them into novels or playscripts. In 2012, I voluntarily directed the graduate musical for department of chemistry, where I led a team to work up everything from scratch with much sense of achievement. My fond of storytelling resulted in my ultimate resolution to establish an animation studio in my homeland, Taiwan, producing movies and developing novel tools for digital animators. While lack of funding and human resources severely hinder our traditional animation industry from blooming, the prosperous status of our information/technology industry sets a more concrete foundation for producing computer animation. However, since currently existed production pipelines are designed mainly for highly commercialized studios, they hardly suit the need for our low capital-intensive environment. A solution is to revolutionize the ways artists can convey their intentions to computers so that detailed division of labor becomes unnecessary. Evidently, mere passion is not enough to grant the fulfillment of this goal. I need to recieve further trainings in doing research and to master the field of computer graphics, which is the reason I apply for XXX program at XXX university.
+
+% match
+
+Through a careful survey, I am convinced that your program suits me the best. (...)\\
+
+\end{document}
+
