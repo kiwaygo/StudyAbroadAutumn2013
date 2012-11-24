@@ -1,15 +1,15 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.3.15)  22 NOV 2012 14:18
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.3.15)  23 NOV 2012 07:53
 entering extended mode
  %&-line parsing enabled.
-**SOP-final
-(./SOP-final.tex
+**SOP-umass
+(./SOP-umass.tex
 LaTeX2e <2009/09/24>
 Babel <v3.8l> and hyphenation patterns for english, usenglishmax, dumylang, noh
 yphenation, pinyin, loaded.
 (/usr/share/texmf-texlive/tex/latex/base/article.cls
 Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
-(/usr/share/texmf-texlive/tex/latex/base/size12.clo
-File: size12.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+(/usr/share/texmf-texlive/tex/latex/base/size11.clo
+File: size11.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
 \c@section=\count80
@@ -268,9 +268,9 @@ Package ifvtex Info: VTeX not detected.
 \Gm@odd@mp=\dimen106
 \Gm@even@mp=\dimen107
 \Gm@dimlist=\toks17
-(/usr/share/texmf-texlive/tex/xelatex/xetexconfig/geometry.cfg)) (./SOP-final.a
+(/usr/share/texmf-texlive/tex/xelatex/xetexconfig/geometry.cfg)) (./SOP-umass.a
 ux)
-\openout1 = `SOP-final.aux'.
+\openout1 = `SOP-umass.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
 LaTeX Font Info:    ... okay on input line 32.
@@ -315,10 +315,10 @@ driver: pdftex
 \headheight 12.0pt
 \headsep    25.0pt
 \footskip   30.0pt
-\marginparwidth 35.0pt
+\marginparwidth 50.0pt
 \marginparsep   10.0pt
 \columnsep  10.0pt
-\skip\footins  10.8pt plus 4.0pt minus 2.0pt
+\skip\footins  10.0pt plus 4.0pt minus 2.0pt
 \hoffset 0.0pt
 \voffset 0.0pt
 \mag 1000
@@ -327,20 +327,20 @@ driver: pdftex
 -----------------------
 [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] (./SOP-final.aux) ) 
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] (./SOP-umass.aux) ) 
 Here is how much of TeX's memory you used:
  1148 strings out of 495046
- 14045 string characters out of 1181937
- 73368 words of memory out of 3000000
+ 14041 string characters out of 1181937
+ 72368 words of memory out of 3000000
  4366 multiletter control sequences out of 15000+50000
- 4851 words of font info for 18 fonts, out of 3000000 for 9000
+ 4853 words of font info for 18 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
  24i,4n,19p,1461b,178s stack positions out of 5000i,500n,10000p,200000b,50000s
 </u
 sr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/te
 xmf-texlive/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-texlive
-/fonts/type1/public/amsfonts/cm/cmr12.pfb>
-Output written on SOP-final.pdf (2 pages, 52762 bytes).
+/fonts/type1/public/amsfonts/cm/cmr10.pfb>
+Output written on SOP-umass.pdf (2 pages, 54802 bytes).
 PDF statistics:
  21 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
